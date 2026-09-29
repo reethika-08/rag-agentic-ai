@@ -31,8 +31,15 @@ def chat(request: ChatRequest):
         "confidence_score": 0.0
     })
 
+    retrieved_context_chunks = (
+        result["context"].split("\n\n")
+        if result["context"]
+        else []
+    )
+
     return {
+        "query": request.query,
         "final_answer": result["answer"],
-        "retrieved_context": result["context"],
+        "retrieved_context_chunks": retrieved_context_chunks,
         "confidence_score": result["confidence_score"]
     }
