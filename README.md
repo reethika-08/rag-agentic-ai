@@ -194,54 +194,81 @@ Response contains:
 
 ## Testing
 
-### Test 1: Document-based question
+The chatbot was tested with both in-document and out-of-document questions to verify retrieval, grounded generation, and refusal behavior.
 
-Question:
+### Test 1 — Agentic AI Definition
 
-```text
-What is Agentic AI according to the eBook?
-```
+**Question:**
 
-Expected behavior:
+> What is Agentic AI according to the eBook?
 
-* Relevant eBook content is retrieved.
-* The answer is generated using the retrieved context.
-* A retrieval confidence score is returned.
+**Result:**
 
-### Test 2: Out-of-document question
+* Answer generated from the retrieved eBook context.
+* Confidence score: `0.739`
+* Status: **Passed**
 
-Question:
+### Test 2 — Core Components
 
-```text
-Who won the 2022 FIFA World Cup?
-```
+**Question:**
 
-Observed behavior:
+> What are the core components of an Agentic AI system?
 
-```text
-I don't know based on the provided document.
-```
+**Result:**
 
-Confidence score:
+* Correctly identified Perception, Reasoning, Planning, Learning, and Execution.
+* Confidence score: `0.665`
+* Status: **Passed**
 
-```text
-0.0
-```
+### Test 3 — Multi-Agent Systems
 
-This demonstrates that the chatbot does not answer questions when relevant information is not available in the provided document.
+**Question:**
 
-### Additional Test Questions
+> What are multi-agent systems?
 
-The following questions can be used to test the chatbot:
+**Result:**
 
-1. What is Agentic AI according to the eBook?
-2. How does Agentic AI differ from traditional AI systems?
-3. What are the core components of an Agentic AI system?
-4. What role does memory play in Agentic AI workflows?
-5. What are multi-agent systems?
-6. Who won the 2022 FIFA World Cup?
+* Retrieved the relevant Multi-Agent Systems section and generated a grounded answer.
+* Confidence score: `0.716`
+* Status: **Passed**
 
-The first five questions should be answered using the eBook context, while the final question should be rejected because it is outside the document's knowledge.
+### Test 4 — Out-of-Document Question
+
+**Question:**
+
+> Who won the 2022 FIFA World Cup?
+
+**Result:**
+
+* The chatbot refused to answer because the information was not available in the provided document.
+* Answer: `I don't know based on the provided document.`
+* Confidence score: `0.000`
+* Status: **Passed**
+
+### Test 5 — Agentic AI vs Traditional AI
+
+**Question:**
+
+> How does Agentic AI differ from traditional AI systems?
+
+**Result:**
+
+* Correctly explained the reactive vs. proactive distinction using retrieved eBook context.
+* Confidence score: `0.644`
+* Status: **Passed**
+
+### Test Summary
+
+| Test                         | Type            | Status |
+| ---------------------------- | --------------- | ------ |
+| Agentic AI definition        | In-document     | Passed |
+| Core components              | In-document     | Passed |
+| Multi-Agent Systems          | In-document     | Passed |
+| FIFA World Cup question      | Out-of-document | Passed |
+| Agentic AI vs traditional AI | In-document     | Passed |
+
+These tests demonstrate that the system can retrieve relevant document content, generate grounded answers, provide a relevance-based confidence score, and refuse questions that fall outside the available knowledge source.
+
 
 ## Confidence Score
 
