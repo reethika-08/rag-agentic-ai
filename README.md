@@ -71,17 +71,18 @@ Hugging Face Embeddings
 
 ## Project Structure
 
+## Project Structure
+
 ```text
 rag-agentic-ai/
 │
 ├── app.py
 ├── requirements.txt
 ├── README.md
-├── .env
+├── .gitignore
 │
 ├── data/
-│   ├── Ebook-Agentic-AI.pdf
-│   └── faiss_index/
+│   └── .gitkeep
 │
 └── src/
     ├── __init__.py
@@ -89,7 +90,6 @@ rag-agentic-ai/
     ├── retrieve.py
     ├── rag.py
     └── graph.py
-```
 
 ## How RAG Works in This Project
 
